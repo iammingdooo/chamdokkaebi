@@ -1644,5 +1644,23 @@ footer .list .item:nth-child(3) .item_text span:nth-of-type(4) {
 
     footer .inner .mb_text {
         display: block;
+        margin-bottom: 20px;
     }
+    footer .inner .mb_text h2 {
+        font-size: 15px;
+        color: #797979;
+        position: relative;
+    }
+
+    footer .inner .mb_text h2::before {
+        content: '';
+        width: 20px;
+        height: 11px;
+        background-size: 100% 100%;
+        background-image: url('../img/under.png');
+        position: absolute;
+        top: 0;
+        right:0;
+    }
+
 }
