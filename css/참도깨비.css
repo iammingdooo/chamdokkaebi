@@ -623,7 +623,7 @@ header .inner .bottom nav ul::before {
 
 .best_menu .list .item:nth-child(3) .text span::after {
     content: '';
-    background-image: url('../img/재구매.png');
+    background: url('../img/buy.png');
     position: absolute;
     width: 25px;
     height: 25px;
@@ -633,7 +633,7 @@ header .inner .bottom nav ul::before {
 
 .best_menu .list .item .text span::after {
     content: '';
-    background-image: url('../img/엄지척.png');
+    background: url('../img/good.png');
     position: absolute;
     width: 25px;
     height: 25px;
