@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>참도깨비</title>
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link href="css/참도깨비.css" rel="stylesheet" />
+    <!-- jquery -->
+    <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        window.onload = function () {
+            let bodyTag = document.getElementsByTagName('body')[0];
+            let menuOpen = document.getElementsByClassName('open')[0];
+            let menuClose = document.getElementsByClassName('close')[0];
+            let hdMenu = document.getElementsByClassName('m_gnb')[0];
+
+            hdMenu.style.display = 'none';
+
+            menuOpen.onclick = function(){
+                if(hdMenu.style.display == 'none'){
+                    hdMenu.style.display = 'block'
+                    bodyTag.style.overflow = 'hidden'
+                    //스크롤바 없애기
+                }
+            }
+
+            menuClose.onclick = function(){
+                if(hdMenu.style.display == 'block'){
+                    hdMenu.style.display = 'none'
+                    bodyTag.style.overflow = 'scroll'
+                }
+            } // menuBtn 
+
+
+            var swiper = new Swiper('.main_slide', {
+                slidesPerView: 1.5,
+                spaceBetween: 10,
+
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1.5,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                },
+            });
+
+
+
+            var swiper2 = new Swiper('.hot_issue', {
+                spaceBetween: 5,
+                slidesPerView: 2,
+
+                navigation: {
+                    nextEl: '.next',
+                    prevEl: '.prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 5,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
+
+            });
+
+            var swiper3 = new Swiper('.best_menu', {
+                spaceBetween: 5,
+                slidesPerView: 2,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 5,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                }
+            });
+
+
+            //product 이미지 바뀌기
+            let product = document.getElementsByClassName('product')[0];
+            let menuBtn = product.getElementsByTagName('li');
+            let productList = product.getElementsByClassName('list');
+
+            for (let i = 0; i < menuBtn.length; i++) {
+                menuBtn[i].onclick = function () {
+
+                    productList[0].classList.remove('on');
+                    productList[1].classList.remove('on');
+                    productList[2].classList.remove('on');
+
+                    productList[i].classList.add('on');
+
+                    menuBtn[0].classList.remove('on');
+                    menuBtn[1].classList.remove('on');
+                    menuBtn[2].classList.remove('on');
+
+                    menuBtn[i].classList.add('on');
+
+                }
+
+            }
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <div class="inner pc">
+            <ul class="top">
+                <li><a href="#">로그인</a></li>
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">장바구니</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul>
+            <div class="bottom">
+                <h1>
+                    <img src="img/로고바꾼거 1.png" alt="" />
+                </h1>
+                <nav>
+                    <ul>
+                        <li class="depth01">
+                            <a href="#">전체상품</a>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">맛집로드</a>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">특가</a>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">베스트</a>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">신선제품</a>
+                            <ul class="depth02">
+                                <li><a href="#">산지직송</a></li>
+                                <li><a href="#">가공제품</a></li>
+                            </ul>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">추가메뉴</a>
+                            <ul class="depth02">
+                                <li><a href="#">포토리뷰</a></li>
+                                <li><a href="#">스케줄러</a></li>
+                                <li><a href="#">이벤트</a></li>
+                            </ul>
+                        </li>
+                        <li class="depth01">
+                            <a href="#">회사소개</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div><!-- .inner -->
+
+        <div class="mobile inner">
+            <div class="header">
+                <h1>
+                    <img src="img/mobile_logo.png" alt="" />
+                </h1>
+                <div class="mobile open">
+                    <img src="img/mobile_menu.png" alt="" />
+                </div>
+            </div>
+
+            <div class="mobile m_gnb">
+                
+                    <div class="close">
+                        <img src="img/close.png" alt="" />
+                    </div><!-- .close end -->
+                    <div class="login">
+                        <p>로그인 해주세요.</p>
+                        <div class="list">
+                            <div class="item">
+                                <span>주문내역</span>
+                                <strong>0<span>건</span></strong>
+                            </div>
+                            <div class="item">
+                                <span>쿠폰</span>
+                                <strong>0<span>건</span></strong>
+                            </div>
+                            <div class="item">
+                                <span>찜</span>
+                                <strong>0<span>건</span></strong>
+                            </div>
+                        </div><!-- .list end -->
+                    </div><!-- .login end -->
+                    <ul>
+                        <li>맛집로드</li>
+                        <li>베스트</li>
+                        <li>특가</li>
+                        <li>신선제품</li>
+                        <li>추가메뉴</li>
+                        <li>회사소개</li>
+                    </ul>
+               
+            </div><!-- .mobile m_gnb -->
+        </div><!-- mobile inner -->
+    </header>
+
+    <section class="main_img">
+        <figure>
+            <img id="pc" src="img/mainvisual_pc.png" alt="" />
+            <img id="mb" src="img/mobile_main.png" alt="" />
+        </figure>
+    </section><!-- .main_img end -->
+
+    <section class="cont01">
+        <div class="swiper main_slide">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/메인이미지1.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/메인이미지2.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/메인이미지3.png" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/메인이미지4.png" alt="" />
+                </div>
+            </div>
+            <div class="button">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+        </div><!-- .main_slide end -->
+        <div class="swiper-pagination"></div>
+    </section>
+
+
+    <div class="hot">
+        <div class="swiper hot_issue">
+            <h1>참도깨비 핫!이슈</h1>
+            <div class="swiper-wrapper list">
+                <div class="swiper-slide item">
+                    <figure>
+                        <img src="img/핫이슈1.png" alt="" />
+                    </figure>
+                    <div class="text">
+                        <p>4.9<span>(52)</span></p>
+                        <h2>부산맛집 이병우 설렁탕<br /> 550g x 2봉</h2>
+                        <strong>23,900원</strong>
+                        <ul>
+                            <li>#부산맛집</li>
+                            <li>#뜨끈뜨끈국물</li>
+                            <li>#설렁탕</li>
+                        </ul>
+                    </div><!-- .text end -->
+                </div><!-- .item 1 end -->
+                <div class="swiper-slide item">
+                    <figure>
+                        <img src="img/핫이슈2.png" alt="" />
+                    </figure>
+                    <div class="text">
+                        <p>4.6<span>(48)</span></p>
+                        <h2>[지역명물] 부산 당면만두</h2>
+                        <strong>5,700원</strong>
+                        <ul>
+                            <li>#부산맛집</li>
+                            <li>#시장맛집</li>
+                            <li>#추억의음식</li>
+                        </ul>
+                    </div>
+
+                </div><!-- .item 2 end  -->
+                <div class="swiper-slide item">
+                    <figure>
+                        <img src="img/핫이슈3.png" alt="" />
+                    </figure>
+                    <div class="text">
+                        <p>4.9<span>(52)</span></p>
+                        <h2>누들떡볶이세트/누들밀떡 3봉 + <br /> 떡볶소스 3봉</h2>
+                        <strong>9,900원</strong>
+                        <ul>
+                            <li>#분식</li>
+                            <li>#매콤한떡볶이</li>
+                            <li>#간식추천</li>
+                        </ul>
+                    </div>
+
+                </div><!-- .item 3 end -->
+                <div class="swiper-slide item">
+                    <figure>
+                        <img src="img/핫이슈4.png" alt="" />
+                    </figure>
+                    <div class="text">
+
+                        <p>4.9<span>(52)</span></p>
+
+
+
+                        <h2>포차우동 10인분/사누끼 우동5개입 <br />x 2 + 우동소스 10봉</h2>
+                        <strong>13,900원</strong>
+                        <ul>
+                            <li>#포장마차</li>
+                            <li>#뜨끈뜨끈국물</li>
+                            <li>#우동</li>
+                        </ul>
+                    </div>
+
+                </div><!-- .item 4 end -->
+            </div><!-- .list end  -->
+        </div><!-- swiper end -->
+        <div class="button">
+            <div class="prev"></div>
+            <div class="next"></div>
+        </div><!-- button end -->
+    </div><!-- .hot end -->
+
+    <section class="cont02">
+        <div class="inner">
+            <h1>BEST MENU</h1>
+            <div class="swiper best_menu">
+                <div class="swiper-wrapper list">
+                    <div class="swiper-slide item">
+                        <figure>
+                            <img src="img/BEST1.png" alt="" />
+                        </figure>
+                        <div class="text">
+                            <span>인기</span>
+                            <h2>[참슐랭] 엄궁 아낙촌 낙새</h2>
+                            <strong>18,900<p>원</p></strong>
+                            <ul>
+                                <li>#낙지</li>
+                                <li>#엄궁맛집</li>
+                                <li>#매콤한술안주</li>
+                                <li>#반찬메뉴</li>
+                            </ul>
+                        </div><!-- .text end -->
+                    </div><!-- item 1 end -->
+                    <div class="swiper-slide item">
+                        <figure>
+                            <img src="img/BEST2.png" alt="" />
+                        </figure>
+                        <div class="text">
+                            <span>인기</span>
+                            <h2>춘천 순살 닭갈비 750g x 2봉</h2>
+                            <strong>18,900<p>원</p></strong>
+                            <ul>
+                                <li>#닭요리</li>
+                                <li>#밥도둑</li>
+                                <li>#춘천명물</li>
+                                <li>#단백질풍부</li>
+                            </ul>
+                        </div><!-- .text end -->
+                    </div><!-- item 2 end -->
+                    <div class="swiper-slide item">
+                        <figure>
+                            <img src="img/BEST3.png" alt="" />
+                        </figure>
+                        <div class="text">
+                            <span>재구매율</span>
+                            <h2>부산명물맛집 금강만두 육개장630g x 5봉</h2>
+                            <strong>25,900<p>원</p></strong>
+                            <ul>
+                                <li>#부산명물</li>
+                                <li>#MD추천</li>
+                                <li>#가성비아이템</li>
+                            </ul>
+                        </div><!-- .text end -->
+                    </div><!-- item 3 end -->
+                    <div class="swiper-slide item">
+                        <figure>
+                            <img src="img/BEST4.png" alt="" />
+                        </figure>
+                        <div class="text">
+                            <span>★품절임박!!★</span>
+                            <h2>아침엔 주먹밥 5종 100g x 12봉</h2>
+                            <strong>15,000<p>원</p></strong>
+                            <ul>
+                                <li>#따끈국물</li>
+                                <li>#칼칼한국물</li>
+                                <li>#포장마차스타일</li>
+                            </ul>
+                        </div><!-- .text end -->
+                    </div><!-- item 4 end -->
+                    <div class="swiper-slide item">
+                        <figure>
+                            <img src="img/BEST5.png" alt="" />
+                        </figure>
+                        <div class="text">
+                            <span>★품절임박!!★</span>
+                            <h2>부산꼬치어묵10개입 x 3봉<br />+장국6봉</h2>
+                            <strong>13,600<p>원</p></strong>
+                            <ul>
+                                <li>#따끈국물</li>
+                                <li>#부산특산물</li>
+                                <li>#든든한간식</li>
+                            </ul>
+                        </div><!-- .text end -->
+                    </div><!-- item 5 end -->
+                </div><!-- list end -->
+            </div><!-- .inner end -->
+        </div><!-- .best_menu end -->
+        <div class="swiper-p"></div>
+    </section><!-- .cont02 -->
+
+
+    <div class="product">
+        <div class="inner">
+            <div class="left">
+                <h2><span>이상품,</span><br />어때요?</h2>
+                <ul class="tap_menu">
+                    <li class="on">#참도깨비와_함께하는_맛집로드</li>
+                    <li>#수요일하루_24시간_특가세일</li>
+                    <li>#집에서_느낄 수 있는_신선함</li>
+                </ul>
+            </div><!-- .left end -->
+            <div class="list on">
+                <div class="item">
+                    <figure>
+                        <img src="img/맛집로드4 (1).png" alt="" />
+                    </figure>
+                    <div>
+                        <p>4.9<span>(68)</span></p>
+                    </div>
+                    <h2>춘원 메밀소바 5인분세트/춘원 생면1kg
+                        +냉소바육수 5봉</h2>
+                    <strong>14,900<span>원</span></strong>
+
+
+                </div><!-- .item1 end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/맛집로드3 (1).png" alt="" />
+                    </figure>
+                    <div>
+                        <p>4.9<span>(68)</span></p>
+
+                    </div>
+                    <h2>청평맛집 또뽀끼520g(3인분) x 3봉</h2>
+                    <strong>13,900<span>원</span></strong>
+
+
+                </div><!-- .item 2 end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/맛집로드1 (1).png" alt="" />
+                    </figure>
+                    <div>
+                        <p>4.3<span>(17)</span></p>
+
+                    </div>
+                    <h2>부산 52년 김영선 원조 조방할매낙지<br />
+                        낙곱새 1kg 밀키트</h2>
+                    <strong>25,900<span>원</span></strong>
+
+                </div><!-- .item 3 end -->
+            </div><!-- .list end -->
+
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/sale1.png" alt="" />
+                    </figure>
+                    <div>
+                        <p>4.9<span>(68)</span></p>
+                    </div>
+                    <h2>남원 산초 추어탕 500g x 4봉</h2>
+                    <strong>19,900<span>원</span></strong>
+
+
+                </div><!-- .item1 end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/sale2.png" alt="" />
+                    </figure>
+                    <div>
+                        <p>4.9<span>(68)</span></p>
+                    </div>
+                    <h2>부산 중식맛집 연경 중화군만두1kg x 2봉</h2>
+                    <strong>14,900<span>원</span></strong>
+
+
+                </div><!-- .item 2 end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/sale3.png" alt="" />
+                    </figure>
+                    <div>
+                        <p>4.3<span>(17)</span></p>
+
+                    </div>
+                    <h2>[지역명물] 합천 콩국수 10인 세트</h2>
+                    <strong>14,900<span>원</span></strong>
+
+                </div><!-- .item 3 end -->
+            </div><!-- .list end -->
+
+            <div class="list">
+                <div class="item">
+                    <figure>
+                        <img src="img/fresh.png" alt="" />
+                    </figure>
+                    <div>
+                        <p>4.9<span>(68)</span></p>
+                    </div>
+                    <h2>[거제수협]동해안 국내산 손질 반건조 <br />
+                        임연수 90g x 5팩(10마리)</h2>
+                    <strong>14,610<span>원</span></strong>
+
+
+                </div><!-- .item1 end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/fresh2.png" alt="" />
+                    </figure>
+                    <div>
+                        <p>4.9<span>(68)</span></p>
+                    </div>
+                    <h2>[거제수협]외포 자연산 손질대구 350g <br />
+                        x 3팩 매운탕소스 3개 무료</h2>
+                    <strong>21,660<span>원</span></strong>
+
+
+                </div><!-- .item 2 end -->
+                <div class="item">
+                    <figure>
+                        <img src="img/fresh3.png" alt="" />
+                    </figure>
+                    <div>
+                        <p>4.3<span>(17)</span></p>
+
+                    </div>
+                    <h2>[삼양씨푸드]떠먹는명란150g x 3<br />
+                        한끼명란80g x 3</h2>
+                    <strong>25,900<span>원</span></strong>
+
+                </div><!-- .item 3 end -->
+            </div><!-- .list end -->
+
+
+        </div><!-- .inner end -->
+    </div><!-- product end -->
+
+    <div class="review">
+        <h2>고객들의 생생 REVIEW</h2>
+        <div class="list">
+            <div class="item">
+                <figure>
+                    <img src="img/review1.png" alt="" />
+                </figure>
+                <div class="text_wrap">
+                    <div class="text">
+                        <h3>정말 맛있네요~!</h3>
+                        <p>돼지국밥 사고 사은품으로 온 떡볶이가 너무 맛있고
+                            적립금 만원도 받고 해서 주문해 봤는데 별미네요
+                            많이 달지도 않고 떡도 쫄깃쫄깃하고 밀떡...</p>
+                        <span>향***</span>
+                    </div><!-- .text end -->
+                    <div class="text_bottom">
+                        <figure>
+                            <img src="img/평점1.png" alt="" />
+                        </figure>
+                        <div>
+                            <h2><span>평점 </span>: 5.0</h2>
+                            <p>누들떡볶이세트/누들밀떡 3봉...</p>
+                        </div>
+
+                    </div><!-- .text_bottom end -->
+                </div>
+            </div><!-- .item 1 end -->
+            <div class="item">
+                <figure>
+                    <img src="img/review2.png" alt="" />
+                </figure>
+                <div class="text_wrap">
+                    <div class="text">
+                        <h3>정말 맛있네요^^</h3>
+                        <p>최고의 맛입니다 아주 맛있게 잘먹었습니다
+                            후기가 늦어 죄송합니나</p>
+                        <span>김**</span>
+                    </div><!-- .text end -->
+                    <div class="text_bottom">
+                        <figure>
+                            <img src="img/평점2.png" alt="" />
+                        </figure>
+                        <div>
+                            <h2><span>평점 </span>: 5.0</h2>
+                            <p>[지역명물] 부산밀면 10봉세트...</p>
+                        </div>
+
+                    </div><!-- .text_bottom end -->
+                </div>
+            </div><!-- .item 2 end -->
+            <div class="item">
+                <figure>
+                    <img src="img/review3.png" alt="" />
+                </figure>
+                <div class="text_wrap">
+                    <div class="text">
+                        <h3>아주 맛있게 잘 먹었습니다.</h3>
+                        <p>아주 맛있게 잘먹었습니다
+                            후기가 늦어 죄송합니다</p>
+                        <span>김**</span>
+                    </div><!-- .text end -->
+                    <div class="text_bottom">
+                        <figure>
+                            <img src="img/평점3.png" alt="" />
+                        </figure>
+                        <div>
+                            <h2><span>평점 </span>: 4.8</h2>
+                            <p>[참슐랭] 부산 자갈치 연탄불...</p>
+                        </div>
+                    </div><!-- .text_bottom end -->
+                </div>
+
+            </div><!-- .item 3 end -->
+            <div class="item">
+                <figure>
+                    <img src="img/review4.png" alt="" />
+                </figure>
+                <div class="text_wrap">
+                    <div class="text">
+                        <h3>최고의 맛</h3>
+                        <p>양념도 넉넉하고 전문점에 가서 먹는것처럼 맛있어요
+                            떨어질때쯤 재구매하는 최애식품입니다~
+                            참도깨비 번창하세요♡</p>
+                        <span>김**</span>
+                    </div><!-- .text end -->
+                    <div class="text_bottom">
+                        <figure>
+                            <img src="img/평점4.png" alt="" />
+                        </figure>
+                        <div>
+                            <h2><span>평점 </span>: 5.0</h2>
+                            <p>춘천순살닭갈비 750g x 2봉</p>
+                        </div>
+
+                    </div><!-- .text_bottom end -->
+                </div>
+
+            </div><!-- .item 4 end -->
+        </div><!-- .list end -->
+
+    </div><!-- .review end -->
+
+    <div class="story">
+        <div class="inner">
+            <div class="list">
+                <div class="left">
+                    <h2>참도깨비<br /><span>STORY</span></h2>
+                    <p>참도깨비의 다양한 스토리를 확인해보세요.</p>
+                </div><!-- .left end -->
+                <div class="right_list">
+                    <div class="center">
+                        <div class="item">
+                            <figure>
+                                <img src="img/story1.png" alt="" />
+                            </figure>
+                            <span>세상의 모든 숨을 맛집을 찾아<br />소개하는
+                                참도깨비</span>
+                        </div><!-- .item 1 end -->
+                        <div class="item">
+                            <figure>
+                                <img src="img/story3.png" alt="" />
+                            </figure>
+                            <span>노포맛집 간편식 개발로 올해 70억 매출<br />
+                                예상하는 참도깨비 푸드 개발 비법</span>
+                        </div><!-- .item 2 end -->
+                    </div><!-- .center end -->
+                    <div class="right">
+                        <figure>
+                            <img src="img/story2.png" alt="" />
+                        </figure>
+                        <span>찾아 가지 않아도 맛집을 집에서<br />
+                            먹을 수 있는 참도깨비</span>
+                    </div><!-- .right endw -->
+                </div><!-- .right_list end -->
+            </div><!-- .list end -->
+        </div><!-- .inner end -->
+    </div><!-- .story end -->
+
+    <footer>
+        <div class="inner">
+            <div class="mb_text">
+                <h2>참도깨비</h2>
+            </div>
+            <div class="list">
+                <div class="item">
+                    <h3>customer center</h3>
+
+                    <div class="item_text">
+                        <strong>1588-1829</strong>
+                        <span>- 평일 : 10:00 ~ 18:00 (점심시간 12:00 ~ 13:00)</span>
+                        <span>- 고객센터 운영시간에 순차적으로 답변드리겠습니다. </span>
+                        <span>- 토요일, 일요일, 공휴일 휴무</span>
+                        <p>* 통화량이 많을때는 문의 게시판으로 문의주세요.</p>
+                    </div>
+                </div><!-- .item end -->
+                <div class="item">
+                    <h3>other information</h3>
+                    <div class="item_text">
+                        <div>
+                            <span>국민은행 102-6543-015789 (예금주：에비뉴) </span>
+                            <span>우리은행 3020-9876-4322 (예금주：에비뉴)</span>
+                        </div>
+                        <p>* 입금자명 불일치시 자동 입금 확인이 되지않습니다.</p>
+                        <span>반품주소지<br>
+                            -반품을 받을 수 있는 배송지를 기재해주세요.</span>
+                    </div>
+
+                </div><!-- .item 2 end -->
+                <div class="item">
+                    <h3>회사소개 | 이용약관 | 개인정보처리방침 | 이용안내</h3>
+                    <div class="item_text">
+                        <span>법인명(상호) : 참도깨비유통 | 대표자(성명) : 전기웅 | 사업자 등록번호 안내 : 602-04-75251</span>
+                        <span>통신판매업 신고 : 제2015-부산기장-0026호 | 개인정보보호책임자 : 한길만(hhoow8585@nate.com)</span>
+                        <span>전화 : 1588-1829 | 팩스 : 070-4009-3906 | 주소 : 46028 부산광역시 기장군 장안읍 명례산단3로 13-17 참도깨비유통
+                        </span>
+                        <span>Copyright © 참도깨비유통. All rights reserved.</span>
+                    </div>
+                </div><!-- .item 2 end -->
+            </div><!-- .list end -->
+        </div>
+    </footer>
+</body>
+
+</html>
